@@ -82,3 +82,4 @@ flowchart LR
 
     LLM -->|Correlação + Análise| A[Relatório do Incidente]
     A -->|Causa raiz + Ações| U
+```
