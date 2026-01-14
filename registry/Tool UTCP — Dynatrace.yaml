@@ -1,0 +1,49 @@
+tool:
+  name: dynatrace_get_service_metrics
+  description: >
+    Recupera métricas de serviços monitorados no Dynatrace,
+    como latência, taxa de erro e throughput.
+  protocol: utcp
+  input_schema:
+    type: object
+    properties:
+      service_name:
+        type: string
+        description: Nome do serviço no Dynatrace
+      metric:
+        type: string
+        enum:
+          - response_time
+          - error_rate
+          - request_count
+      timeframe:
+        type: string
+        description: Intervalo de tempo (ex: last_30m, last_2h)
+      aggregation:
+        type: string
+        enum:
+          - avg
+          - p95
+          - p99
+    required:
+      - service_name
+      - metric
+      - timeframe
+  output_schema:
+    type: object
+    properties:
+      service_name:
+        type: string
+      metric:
+        type: string
+      timeframe:
+        type: string
+      values:
+        type: array
+        items:
+          type: object
+          properties:
+            timestamp:
+              type: string
+            value:
+              type: number

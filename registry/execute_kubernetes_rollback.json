@@ -1,0 +1,22 @@
+{
+  "name": "execute_kubernetes_rollback",
+  "description": "Executa o rollback de um deployment no Kubernetes para a versão anterior estável.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "deployment_name": {
+        "type": "string",
+        "description": "O nome do deployment (ex: 'checkout-service')"
+      },
+      "namespace": {
+        "type": "string",
+        "description": "O namespace do K8s (ex: 'production')"
+      },
+      "reason": {
+        "type": "string",
+        "description": "Breve justificativa para o rollback (para auditoria)"
+      }
+    },
+    "required": ["deployment_name", "namespace", "reason"]
+  }
+}

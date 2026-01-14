@@ -1,0 +1,23 @@
+{
+  "name": "get_dynatrace_bottlenecks",
+  "description": "Busca spans de trace no Dynatrace que excedem o tempo de resposta esperado para um serviço específico.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "entity_id": {
+        "type": "string",
+        "description": "ID da entidade no Dynatrace (ex: SERVICE-12345)"
+      },
+      "time_window": {
+        "type": "string",
+        "description": "Janela de tempo para análise (ex: 'now-15m')",
+        "default": "now-10m"
+      },
+      "min_duration_ms": {
+        "type": "integer",
+        "description": "Filtrar apenas traces mais lentos que este valor em ms."
+      }
+    },
+    "required": ["entity_id"]
+  }
+}
