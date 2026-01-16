@@ -56,6 +56,8 @@ Essa separação garante **clareza arquitetural e baixo acoplamento**.
 ---
 
 ## 🧩 Arquitetura — C4 Model
+> Nota: O diagrama segue o C4 Model conceitualmente, usando Mermaid padrão
+> para garantir compatibilidade com o GitHub.
 
 ### C4 — Level 1: Context Diagram
 
@@ -117,7 +119,7 @@ C4Container
 Mostra onde está o valor de negócio principal.
 
 ```mermaid
-C4Component
+    C4Component
     title Component Diagram - Agent Core
 
     Container(agent, "Agent Core") {
@@ -199,3 +201,42 @@ Arquitetura sólida
 Limites claros de domínio
 Decisões explícitas e rastreáveis
 Separação entre inteligência, infraestrutura e execução
+
+## Estrutura completa de repositório (GitHub)
+
+A ideia é que o repositório comunique maturidade arquitetural logo no primeiro olhar, mesmo sem código.
+
+```pgsql
+agente-ia-sre/
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── c4-context.md
+│   │   ├── c4-container.md
+│   │   └── c4-component.md
+│   │
+│   ├── adr/
+│   │   ├── ADR-001-bounded-context-agente-ia-sre.md
+│   │   ├── ADR-002-utcp-tools.md
+│   │   ├── ADR-003-human-in-the-loop.md
+│   │   ├── ADR-004-sla-investigacao.md
+│   │   └── ADR-005-auto-remediation-metadata.md
+│   │
+│   ├── domain/
+│   │   ├── ubiquitous-language.md
+│   │   ├── domain-invariants.md
+│   │   └── domain-overview.md
+│   │
+│   └── vision/
+│       ├── problem-statement.md
+│       ├── goals-non-goals.md
+│       └── future-evolution.md
+│
+└── examples/
+    ├── incident-scenario.md
+    └── agent-output-example.md
+```
+
